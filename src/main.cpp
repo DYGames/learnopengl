@@ -92,10 +92,10 @@ void initModel(Model* model)
 
     // copy vertices array in a buffer
     glBindBuffer(GL_ARRAY_BUFFER, model->VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(model->vertices), &*model->vertices.begin(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, model->vertices.size() * sizeof(float), &*model->vertices.begin(), GL_STATIC_DRAW);
 
     // set vertex attributes pointers
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void *)0);
     glEnableVertexAttribArray(0);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
